@@ -10,9 +10,9 @@
     #invite { position:absolute; display:none; pointer-events:none;
       transform:translate(-50%, -50%);
     }
-    #invite img { max-width:120px; border-radius:10px; }
+    #invite img { max-width:240px; border-radius:10px; }
     #invite div { background:rgba(0,0,0,0.7); color:#fff; padding:4px 8px;
-      border-radius:5px; text-align:center; font-size:14px; }
+      border-radius:5px; text-align:center; font-size:16px; }
   </style>
 </head>
 
@@ -31,7 +31,6 @@
     const invite = document.getElementById('invite');
     const nameText = document.getElementById('nameText');
 
-    // Lấy tên khách mời từ URL
     const name = new URLSearchParams(window.location.search).get('name') || 'bạn';
     nameText.textContent = `Thân mời ${name}`;
 
@@ -55,7 +54,8 @@
 
     const cam = new Camera(video, {
       onFrame: () => hands.send({image: video}),
-      width: 640, height: 480
+      width: 640, height: 480,
+      facingMode: 'environment'
     });
     cam.start();
   </script>
